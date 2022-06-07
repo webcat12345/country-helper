@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { TitleCasePipe } from '@angular/common';
 import { Store } from '@ngrx/store';
+import { map } from 'rxjs';
 
-import { loadCountries } from './actions/country.actions';
+import { loadCountries, selectCountry } from './actions/country.actions';
 import { Region } from './core/models/region.model';
-import { Option } from './core/models/common.model';
+import { selectRegions } from './reducers/region.reducer';
+import { selectCountries, selectIsLoading, selectSelectedCountry } from './reducers/country.reducer';
+import { Country } from './core/models/country.model';
 
 @Component({
   selector: 'app-root',
@@ -11,16 +15,34 @@ import { Option } from './core/models/common.model';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  regions: Option<Region>[] = [
-    { label: 'Europe', value: Region.Europe },
-    { label: 'Asia', value: Region.Asia },
-  ];
+  regions$ = this.store
+    .select(selectRegions)
+    .pipe(
+      map((regions) =>
+        regions.map((region) => ({ label: this.titleCasePipe.transform(region), value: region, data: region }))
+      )
+    );
+  countries$ = this.store
+    .select(selectCountries)
+    .pipe(
+      map((countries) =>
+        countries.map((country) => ({ label: country.name, value: country.alpha2Code, data: country }))
+      )
+    );
+  isLoading$ = this.store.select(selectIsLoading);
+  country$ = this.store.select(selectSelectedCountry);
 
-  constructor(private store: Store) {}
+  constructor(private store: Store, private titleCasePipe: TitleCasePipe) {}
 
-  ngOnInit() {}
+  ngOnInit(): void {
+    this.store.select(selectRegions);
+  }
 
-  onSelectRegion(option: Region) {
-    this.store.dispatch(loadCountries({ region: option }));
+  onSelectRegion(region: Region): void {
+    this.store.dispatch(loadCountries({ region }));
+  }
+
+  onSelectCountry(country: Country): void {
+    this.store.dispatch(selectCountry({ country }));
   }
 }

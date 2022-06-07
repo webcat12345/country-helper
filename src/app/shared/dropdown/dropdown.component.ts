@@ -21,7 +21,12 @@ export class DropdownComponent<T> implements OnInit {
 
   ngOnInit(): void {
     this.form.get('option')?.valueChanges.subscribe({
-      next: (value) => this.selected.emit(value),
+      next: (value) => {
+        const selected = this.options.find((x) => x.value === value);
+        if (selected) {
+          this.selected.emit(selected.data);
+        }
+      },
     });
   }
 }
