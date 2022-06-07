@@ -1,1 +1,14 @@
+<section class="mt-50 mb-50">
+  <div class="container">
+    <div class="grid grid-cols-2">
+      <div>
+        <app-dropdown label="Region" [options]="regions" (selected)="onSelectRegion($event)"></app-dropdown>
+      </div>
+      <div>
+        <app-dropdown label="Region" [options]="regions"></app-dropdown>
+      </div>
+    </div>
+  </div>
+</section>
+
 <router-outlet></router-outlet>
