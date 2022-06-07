@@ -107,5 +107,8 @@
       }
     }
   },
-  "defaultProject": "country-helper"
+  "defaultProject": "country-helper",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
