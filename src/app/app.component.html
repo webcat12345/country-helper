@@ -11,7 +11,7 @@
         </div>
         <div>
           <app-dropdown
-            label="Region"
+            label="Country"
             [options]="(countries$ | async) || []"
             (selected)="onSelectCountry($event)"
           ></app-dropdown>

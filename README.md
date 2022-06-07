@@ -1,27 +1,63 @@
-# CountryHelper
+# Country Search Helper
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
+## How to use?
 
-## Development server
+Ensure you have `node.js` environment installed on your computer along with `npm`.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Development
+Run development server and check the port 4200 on the browser
 
-## Code scaffolding
+```bash
+$ npm install
+$ npm run start
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Production Deployment
 
-## Build
+```bash
+$ npm run build
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+This command will build the project in production mode. You just need to move the `dist` folder to the server and do some fallback redirection config which is 
+required for the SPA. Here you can find more details [here](https://angular.io/guide/deployment#simple-deployment-options)
 
-## Running unit tests
+## Specifications
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Note from developer
 
-## Running end-to-end tests
+To focus more on development, code quality and functional things, I selected the fastest way. Here are libraries I used for basic styling and programming.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+* [Angular Material](https://material.angular.io/)
+* [Tailwind CSS](https://tailwindcss.com/)
+* [Prettier](https://prettier.io/)
+* [Ngrx](https://ngrx.io/)
 
-## Further help
+### Answers to questions
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+#### Any style guides you used for your coding
+
+I just followed very standard Typescript and HTML coding principal. Additionally I used prettier for the lint & quality improvement. 
+
+#### Any CSS coding standards
+
+I used Angular Material and Tailwind CSS for the project, so there was actually no need to write any CSS code. This was for just reduce the time costing which could be spent on cosmetic things.
+
+#### Installation 
+
+Installation guide can be found from [here](#development).
+
+#### Description of how the application work
+
+* User need to select the region from the dropdown.
+* Then the API request will be sent with the selected region.
+* That request will return countries.
+* Now user can select the country from the dropdown list.
+* Selected country will be rendered, along with information such as name, flag, population and etc.
+* User can continue his searching with options...
+
+#### If you ran out of time what else you would have done?
+
+_Unit Testing_
+
+There are many things that can be good for the improvement, but if I choose just one then - I will write Test-Cases (at least unit testing) for services, components and stores and so on.
+My initial plan contains tests but duration was not enough, I didn't change the `spec` generation from the schematic configuration. 
