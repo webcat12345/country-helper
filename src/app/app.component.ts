@@ -4,9 +4,9 @@ import { Store } from '@ngrx/store';
 import { map } from 'rxjs';
 
 import { loadCountries, selectCountry } from './actions/country.actions';
-import { Region } from './core/models/region.model';
 import { selectRegions } from './reducers/region.reducer';
 import { selectCountries, selectIsLoading, selectSelectedCountry } from './reducers/country.reducer';
+import { Region } from './core/models/region.model';
 import { Country } from './core/models/country.model';
 
 @Component({

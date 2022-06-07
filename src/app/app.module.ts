@@ -3,7 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TitleCasePipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatCardModule } from '@angular/material/card';
+
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
@@ -16,7 +19,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
-import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [AppComponent],
