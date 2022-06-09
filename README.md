@@ -70,3 +70,11 @@ _It became apparent very quickly that some of the details of the spec were not a
 * I created a shared module - CountryModule which has two components which is country search and country detail.
 * Those two components are being used for building the main page.
 * As long as we are interacting via Ngrx Store, there's no need to use `@Input` and `@Output` decorators or services. Check those two components and see how they are interacting together via the store.
+
+_Critically, the unit tests were also missing even though testing templates seemed to be defined for a few components either automatically via the CLI or manually. Although the candidate acknowledged the missing tests in the documentation and attributed it to time constraint, a slightly different approach would have been mitigated that. For example, an application that had 80% - 90% of the specified feature which provided a value to the end user but had comprehensive testing would have been viable. This ensures that the developed percentage  is comprehensively tested for potential issues or bugs._
+
+* There are two types of tests I wrote one for unit test for service and second is the e2e test for the entire user flow.
+* Tests are done based on the specifications you've provided.
+* The API url should be equal as provided, this has been tested as unit test.
+* Other requirements are mostly related with the user flow, so covered by the e2e tests.
+* Page elements, select region, select country, rendering selected country, these requirements are tested via e2e.
