@@ -61,3 +61,12 @@ _Unit Testing_
 
 There are many things that can be good for the improvement, but if I choose just one then - I will write Test-Cases (at least unit testing) for services, components and stores and so on.
 My initial plan contains tests but duration was not enough, I didn't change the `spec` generation from the schematic configuration. 
+
+
+### Additional updates
+
+_It became apparent very quickly that some of the details of the spec were not adhered to. For example, the test details an application structure where we have one component for the country and another for the component country details with the implied testing point being a devs understanding of working with parent and child component, their inputs/outputs and how to structure an application. These details were omitted and all the core application logic were in a single component (.i.e. app.component). In the bigger picture, it becomes an issue if a business task with a specific acceptance criteria and approach decided by a dev team is completed without adhering to the task brief._
+
+* I created a shared module - CountryModule which has two components which is country search and country detail.
+* Those two components are being used for building the main page.
+* As long as we are interacting via Ngrx Store, there's no need to use `@Input` and `@Output` decorators or services. Check those two components and see how they are interacting together via the store.
