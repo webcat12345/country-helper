@@ -14,7 +14,5 @@ export class AppComponent implements OnInit {
 
   constructor(private store: Store) {}
 
-  ngOnInit(): void {
-    this.store.select(selectRegions);
-  }
+  ngOnInit(): void {}
 }
