@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Country } from '../../../core/models/country.model';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+
+import { selectSelectedCountry } from '../../../reducers/country.reducer';
 
 @Component({
   selector: 'app-country-details',
@@ -7,9 +9,9 @@ import { Country } from '../../../core/models/country.model';
   styleUrls: ['./country-details.component.scss'],
 })
 export class CountryDetailsComponent implements OnInit {
-  @Input() country: Country;
+  country$ = this.store.select(selectSelectedCountry);
 
-  constructor() {}
+  constructor(private store: Store) {}
 
   ngOnInit(): void {}
 }
